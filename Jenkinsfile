@@ -20,9 +20,10 @@ pipeline {
         //     echo "Performing npm build..."
             // sh 'chown -R 111:115 "/.npm"'
             // sh 'npm install'
-
-            dockerImageNode = docker.build dockerNodeName + ":latest"
-            sh 'echo $dockerImageNode'
+            script {
+              dockerImageNode = docker.build dockerNodeName + ":latest"
+              sh 'echo $dockerImageNode'
+            }
         // }
     }
   }
