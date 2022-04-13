@@ -1,8 +1,6 @@
 #!/bin/bash
 
-echo "Hello World"
-
-# ecs-cli configure --cluster ec2-tutorial --default-launch-type EC2 --config-name ec2-tutorial --region us-east-1
+ecs-cli configure --cluster ec2-tutorial --default-launch-type EC2 --config-name ec2-tutorial --region us-east-1
 
 # ecs-cli configure profile --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY --profile-name ec2-tutorial-profile
 
