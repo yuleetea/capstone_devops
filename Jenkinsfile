@@ -4,6 +4,8 @@ pipeline {
     registry = '373240450338.dkr.ecr.us-east-1.amazonaws.com/capstone_devops'
     registryCredential = 'Yulee Tea'
     dockerImage = ''
+    dockerImageNode = ''
+    dockerNodeName = 'jenkins_react_app'
   }
   agent any
   stages {
@@ -16,8 +18,11 @@ pipeline {
     steps {
         // withNPM(npmrcConfig:'npmrc') {
         //     echo "Performing npm build..."
-            sh 'chown -R 111:115 "/.npm"'
-            sh 'npm install'
+            // sh 'chown -R 111:115 "/.npm"'
+            // sh 'npm install'
+
+            dockerImageNode = docker.build dockerNodeName + ":latest"
+            sh 'echo $dockerImageNode'
         // }
     }
   }
