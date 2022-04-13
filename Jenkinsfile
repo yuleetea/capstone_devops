@@ -7,6 +7,19 @@ pipeline {
   }
   agent any
   stages {
+    stage('npm-build') {
+    agent {
+        docker {
+            image 'node:latest'
+        }
+    }
+    steps {
+        withNPM(npmrcConfig:'build image') {
+            echo "Performing npm build..."
+            sh 'npm install'
+        }
+    }
+  }
     stage('Building image') {
       steps{
         script {
