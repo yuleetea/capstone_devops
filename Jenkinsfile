@@ -1,7 +1,7 @@
 pipeline {
   environment {
     // registry points to account ID and registry Credential is the same as Yulee Tea and the last part is the same as github registry (jenkins-cicd)
-    registry = '373240450338.dkr.ecr.us-east-1.amazonaws.com/jenkins-aws-ecr-image'
+    registry = '373240450338.dkr.ecr.us-east-1.amazonaws.com/capstone_devops'
     registryCredential = 'Yulee Tea'
     dockerImage = ''
   }
