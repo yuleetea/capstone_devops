@@ -16,6 +16,7 @@ pipeline {
     steps {
         // withNPM(npmrcConfig:'npmrc') {
         //     echo "Performing npm build..."
+            sh 'sudo chown -R 111:115 "/.npm"'
             sh 'npm install'
         // }
     }
