@@ -35,23 +35,23 @@ pipeline {
         }
       }
     }
-    // stage('Push Image to AWS ECR') {
-    //     steps{
-    //         script{
-    //             docker.withRegistry("https://" + registry, "ecr:us-east-1:" + registryCredential) {
-    //                 dockerImage.push()
-    //             }
-    //         }
-    //     }
-    // }
+    stage('Push Image to AWS ECR') {
+        steps{
+            script{
+                docker.withRegistry("https://" + registry, "ecr:us-east-1:" + registryCredential) {
+                    dockerImage.push()
+                }
+            }
+        }
+    }
     
-    // stage('Deploy docker image to AWS ECS container') {
-    //         steps {
-    //             withAWS(credentials: 'Yulee Tea', region: 'us-east-1') {
-    //               sh "chmod +x ./jenkins_ecr.sh"
-    //               sh "./jenkins_ecr.sh"
-    //             }
-    //         }
-    //     }
+    stage('Deploy docker image to AWS ECS container') {
+            steps {
+                withAWS(credentials: 'Yulee Tea', region: 'us-east-1') {
+                  sh "chmod +x ./jenkins_ecr.sh"
+                  sh "./jenkins_ecr.sh"
+                }
+            }
+        }
   }   
 }
