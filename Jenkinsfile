@@ -14,10 +14,10 @@ pipeline {
         }
     }
     steps {
-        withNPM(npmrcConfig:'build image') {
-            echo "Performing npm build..."
+        // withNPM(npmrcConfig:'npmrc') {
+        //     echo "Performing npm build..."
             sh 'npm install'
-        }
+        // }
     }
   }
     // stage('Building image') {
